@@ -1,0 +1,106 @@
+<!--Calculates average for YT videos from editor input-->
+<!DOCTYPE html>
+<html>
+<style>
+    .container
+    .buttons {
+        margin: 5px;
+        width: 95%;
+        padding: 4px;
+        padding-bottom:5px;
+        font-size: 14px;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+
+   
+    
+</style>
+
+<head>
+    <base target="_top">
+    <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css"> <!-- CSS package for editor add-ons-->
+</head>
+
+<body>
+  <script>
+    
+
+    function calculateFunc() {
+
+        var arr=document.getElementsByName("number");
+        arr=Array.from(arr)
+        
+              
+        var tot = 0;
+        var av = 0;
+        var count=10;
+
+              
+        for (var i = 0; i < arr.length; i++) {
+            if(arr[i].value==0){
+              alert("⚠️Input all values");
+              return False;
+             
+            }
+            if (parseInt(arr[i].value)) {
+                tot += parseInt(arr[i].value);
+            }
+        }
+
+        av = tot / arr.length;
+           
+        google.script.run.processNum(av)
+
+        return False;
+
+    }
+
+       
+
+    </script>
+   
+    <div class="container"></div>
+    <form name="calculate">
+<br>
+<b>Input Values</b>
+<br>
+<br>
+
+Video 1  : <input type="number" name="number" id="num1" ><br><br>
+Video 2  : <input type="number" name="number" id="num2" ><br><br>
+Video 3  : <input type="number" name="number" id="num3" ><br><br>
+Video 4  : <input type="number" name="number" id="num4" ><br><br>
+Video 5  : <input type="number" name="number" id="num5" ><br><br>
+Video 6  : <input type="number" name="number" id="num6" ><br><br>
+Video 7  : <input type="number" name="number" id="num7" ><br><br>
+Video 8  : <input type="number" name="number" id="num8" ><br><br>
+Video 9  : <input type="number" name="number" id="num9" ><br><br>
+Video 10: <input type="number" name="number" id="num10" ><br><br>
+
+<br>
+<div class="buttons">
+        <p>
+            <input type="submit" value="Add" class="action" id="action" onclick="calculateFunc();">
+            <input type="reset" value="Reset">
+        </p>
+</div>
+</form>
+
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>
+    
+</body>
+
+</html>
